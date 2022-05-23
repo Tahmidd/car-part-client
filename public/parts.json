@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "name": "Wheel Rim",
+        "description": "Best quality and original forged wheel rims",
+        "min_quantity": 20,
+        "avail_quantity": 90,
+        "price": 300,
+        "img": "https://cdn.pixabay.com/photo/2014/01/30/01/55/wheel-rim-254714_960_720.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Disk Break",
+        "description": "Best disk breaking system for your safety",
+        "min_quantity": 10,
+        "avail_quantity": 100,
+        "price": 150,
+        "img": "https://cdn.pixabay.com/photo/2017/09/16/13/45/clutch-2755546_960_720.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Engine Part",
+        "description": "Best quality engine parts for all models of cars",
+        "min_quantity": 20,
+        "avail_quantity": 150,
+        "price": 450,
+        "img": "https://cdn.pixabay.com/photo/2019/10/29/12/21/motor-4586782_960_720.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Gear Lever",
+        "description": "Stylish gear levers to customize your interior",
+        "min_quantity": 5,
+        "avail_quantity": 30,
+        "price": 50,
+        "img": "https://cdn.pixabay.com/photo/2020/04/02/07/19/bmw-4993779_960_720.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Headlight",
+        "description": "Headlights for different models of cars available",
+        "min_quantity": 15,
+        "avail_quantity": 80,
+        "price": 400,
+        "img": "https://cdn.pixabay.com/photo/2017/09/21/02/19/toyota-2770366_960_720.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Break shoe",
+        "description": "Top quality break which ensure top class safety",
+        "min_quantity": 12,
+        "avail_quantity": 76,
+        "price": 300,
+        "img": "https://cdn.pixabay.com/photo/2018/01/11/01/55/steel-3075241_960_720.jpg"
+    }
+]
