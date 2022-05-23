@@ -2,7 +2,7 @@ import React from 'react';
 
 const BusinessSummary = () => {
     return (
-        <div className='my-20'>
+        <div className='my-5'>
             <div>
                 <h2 className='text-3xl font-bold text-center text-secondary my-5'>Business Summary</h2>
             </div>
