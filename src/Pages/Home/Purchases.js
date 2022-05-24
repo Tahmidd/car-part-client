@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-const Part = ({ part }) => {
+const Purchases = ({ part }) => {
     const { id, name, description, min_quantity, avail_quantity, price, img
     } = part;
     return (
@@ -17,8 +16,7 @@ const Part = ({ part }) => {
                     <p>Available Quantity: {avail_quantity}</p>
                     <p>Price: {price}$</p>
                     <div className="card-actions">
-                        <Link to='/purchase'>
-                            <button className="btn btn-secondary border-2 shadow-md">Place Order</button></Link>
+                        <button className="btn btn-secondary border-2 shadow-md">Purchase</button>
                     </div>
                 </div>
             </div>
@@ -26,4 +24,4 @@ const Part = ({ part }) => {
     );
 };
 
-export default Part;
+export default Purchases;

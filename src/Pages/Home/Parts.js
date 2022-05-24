@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import useParts from '../../hooks/useParts';
 import Part from './Part';
 
 const Parts = () => {
-    const [parts, setParts] = useState([]);
-    useEffect(() => {
-        fetch('parts.json')
-            .then(res => res.json())
-            .then(data => setParts(data))
-    }, [])
+    const [parts, setParts] = useParts();
     return (
         <div className='mb-20'>
             <h2 className='text-3xl font-bold text-center text-secondary my-5'>Parts Available</h2>
