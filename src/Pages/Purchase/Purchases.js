@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Purchases = ({ part }) => {
+const Purchases = ({ part, setPurchase }) => {
     const { id, name, description, min_quantity, avail_quantity, price, img
     } = part;
     return (
@@ -15,9 +15,15 @@ const Purchases = ({ part }) => {
                     <p>Minimum Quantity: {min_quantity}</p>
                     <p>Available Quantity: {avail_quantity}</p>
                     <p>Price: {price}$</p>
-                    <div className="card-actions">
-                        <button className="btn btn-secondary border-2 shadow-md">Purchase</button>
+
+                    <div class="card-actions justify-center">
+                        <label
+                            for="purchase-modal"
+                            onClick={() => setPurchase(part)}
+                            class="btn btn-secondary border-2 shadow-md"
+                        >Purchase</label>
                     </div>
+
                 </div>
             </div>
         </div>
