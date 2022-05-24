@@ -4,6 +4,7 @@ import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
 import img from '../../assets/google.png';
+import Loading from '../Shared/Loading';
 
 
 const Register = () => {
@@ -25,7 +26,7 @@ const Register = () => {
     let signInError;
 
     if (loading || gLoading || updating) {
-
+        return <Loading></Loading>
     }
 
     if (error || gError || updateError) {
