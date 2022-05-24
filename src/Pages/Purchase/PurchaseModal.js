@@ -1,14 +1,16 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import { useForm } from "react-hook-form";
 
 const PurchaseModal = ({ purchase, setPurchase }) => {
     const [user] = useAuthState(auth);
     const { _id, name, min_quantity, avail_quantity, price } = purchase;
+    const { register, formState: { errors }, handleSubmit } = useForm();
 
 
-    const handleBooking = event => {
-        event.preventDefault();
+    const onSubmit = async data => {
+
 
     }
 
@@ -19,7 +21,7 @@ const PurchaseModal = ({ purchase, setPurchase }) => {
                 <div className="modal-box">
                     <label htmlFor="purchase-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h3 className="font-bold text-lg text-secondary">Purchasing: {name}</h3>
-                    <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3  mt-2'>
+                    <form onSubmit={handleSubmit(onSubmit)} className='grid grid-cols-1 gap-3  mt-2'>
 
                         <input type="text" name="name" disabled value={user?.displayName || ''} className="input input-bordered w-full max-w-xs" />
                         <input type="email" name="email" disabled value={user?.email || ''} className="input input-bordered w-full max-w-xs" />
@@ -30,9 +32,29 @@ const PurchaseModal = ({ purchase, setPurchase }) => {
                         <input type="text" name="avail-quan" disabled value={avail_quantity || ''} className="input input-bordered w-full max-w-xs" />
                         <p>Price:</p>
                         <input type="text" name="price" disabled value={price || ''} className="input input-bordered w-full max-w-xs" />
+
+                        <input
+                            type="text"
+                            placeholder="Quantity"
+                            className="input input-bordered w-full max-w-xs"
+                            {...register("quantity", {
+                                required: 'Quantity is Required',
+
+                                validate: (value) =>
+                                    parseInt(value) >= parseInt(min_quantity) && parseInt(value) <= parseInt(avail_quantity) || "Quantity is invalid"
+                            })}
+
+                        />
+
+                        {errors.quantity && <span className="text-sm text-red-500">{errors.quantity.message}</span>}
+
+
+
                         <input type="text" name="phone" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" />
-                        <input type="submit" value="Submit" className="btn btn-secondary w-full max-w-xs" />
+
+                        <input disabled={errors.quantity} type="submit" value="Purchase" className="btn btn-secondary w-full max-w-xs" />
                     </form>
+
                 </div>
             </div>
         </div>
