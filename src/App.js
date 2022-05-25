@@ -13,6 +13,7 @@ import Dashboard from './Pages/Dashboard/DashBoard';
 import MyOrders from './Pages/Dashboard/MyOrders';
 import MyReview from './Pages/Dashboard/MyReview';
 import MyProfile from './Pages/Dashboard/MyProfile';
+import NotFound from './Pages/Shared/NotFound';
 
 
 function App() {
@@ -38,6 +39,8 @@ function App() {
           <Route path='review' element={<MyReview />}></Route>
           <Route path='profile' element={<MyProfile />}></Route>
         </Route>
+
+        <Route path='*' element={<NotFound></NotFound>}></Route>
 
 
 
