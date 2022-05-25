@@ -5,6 +5,7 @@ import auth from '../../firebase.init'
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import img from '../../assets/google.png'
 import Loading from '../Shared/Loading';
+import useToken from '../../hooks/useToken';
 
 
 const Login = () => {
@@ -17,6 +18,8 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
+    const [token] = useToken(user || gUser);
+
 
 
     let signInError;
@@ -25,10 +28,10 @@ const Login = () => {
     let from = location.state?.from?.pathname || "/";
 
     useEffect(() => {
-        if (user || gUser) {
-            navigate(from, { replace: true });
+        if (token) {
+            navigate('/');
         }
-    }, [user, gUser, from, navigate])
+    }, [token, from, navigate])
 
     if (loading || gLoading) {
         return <Loading></Loading>

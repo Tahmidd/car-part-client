@@ -19,11 +19,11 @@ const MyOrders = () => {
             })
                 .then(res => {
                     console.log('res', res);
-                    // if (res.status === 401 || res.status === 403) {
-                    //     signOut(auth);
-                    //     localStorage.removeItem('accessToken');
-                    //     navigate('/');
-                    // }
+                    if (res.status === 401 || res.status === 403) {
+                        signOut(auth);
+                        localStorage.removeItem('accessToken');
+                        navigate('/');
+                    }
                     return res.json()
                 })
                 .then(data => setOrders(data));
@@ -31,9 +31,6 @@ const MyOrders = () => {
     }, [user]);
 
     const handleDelete = id => {
-
-
-
         const url = `http://localhost:5000/purchase/${id}`;
         fetch(url, {
             method: 'DELETE'
@@ -53,7 +50,7 @@ const MyOrders = () => {
     }
     return (
         <div className='mt-5'>
-            <h2>My Appointments: {orders.length}</h2>
+            <h2>My Orders: {orders.length}</h2>
             <div className="overflow-x-auto mt-5">
                 <table className="table w-full">
                     <thead>

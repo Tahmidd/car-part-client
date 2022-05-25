@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
 import img from '../../assets/google.png';
 import Loading from '../Shared/Loading';
+import useToken from '../../hooks/useToken';
 
 
 const Register = () => {
@@ -20,7 +21,7 @@ const Register = () => {
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
 
-
+    const [token] = useToken(user || gUser);
     const navigate = useNavigate();
 
     let signInError;
@@ -33,10 +34,11 @@ const Register = () => {
         signInError = <p className='text-red-600'><small>{error?.message || gError?.message || updateError?.message}</small></p>
     }
 
-    if (user || gUser) {
+    if (token) {
         console.log(user || gUser);
         navigate('/');
     }
+
 
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password);

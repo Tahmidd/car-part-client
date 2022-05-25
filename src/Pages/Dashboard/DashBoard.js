@@ -20,7 +20,7 @@ const Dashboard = () => {
                     {/* <!-- Sidebar content here --> */}
                     <li><Link to="/dashboard">My Orders</Link></li>
                     <li><Link to="/dashboard/review">Reviews</Link></li>
-                    <li><Link to="/dashboard/history">My History</Link></li>
+                    <li><Link to="/dashboard/profile">My Profile</Link></li>
 
                 </ul>
 
