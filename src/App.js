@@ -14,6 +14,7 @@ import MyOrders from './Pages/Dashboard/MyOrders';
 import MyReview from './Pages/Dashboard/MyReview';
 import MyProfile from './Pages/Dashboard/MyProfile';
 import NotFound from './Pages/Shared/NotFound';
+import Users from './Pages/Dashboard/Users';
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
           <Route index element={<MyOrders />}></Route>
           <Route path='review' element={<MyReview />}></Route>
           <Route path='profile' element={<MyProfile />}></Route>
+          <Route path='users' element={<Users />}></Route>
         </Route>
 
         <Route path='*' element={<NotFound></NotFound>}></Route>
