@@ -15,6 +15,7 @@ import MyReview from './Pages/Dashboard/MyReview';
 import MyProfile from './Pages/Dashboard/MyProfile';
 import NotFound from './Pages/Shared/NotFound';
 import Users from './Pages/Dashboard/Users';
+import RequireAdmin from './Pages/Login/RequireAdmin';
 
 
 function App() {
@@ -36,10 +37,10 @@ function App() {
             <Dashboard />
           </RequireAuth>
         } >
-          <Route index element={<MyOrders />}></Route>
+          <Route path='orders' element={<MyOrders />}></Route>
           <Route path='review' element={<MyReview />}></Route>
-          <Route path='profile' element={<MyProfile />}></Route>
-          <Route path='users' element={<Users />}></Route>
+          <Route index element={<MyProfile />}></Route>
+          <Route path='users' element={<RequireAdmin><Users /></RequireAdmin>}></Route>
         </Route>
 
         <Route path='*' element={<NotFound></NotFound>}></Route>
