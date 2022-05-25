@@ -17,6 +17,7 @@ import NotFound from './Pages/Shared/NotFound';
 import Users from './Pages/Dashboard/Users';
 import RequireAdmin from './Pages/Login/RequireAdmin';
 import AddParts from './Pages/Dashboard/AddParts';
+import Manage from './Pages/Dashboard/Manage';
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
           <Route index element={<MyProfile />}></Route>
           <Route path='users' element={<RequireAdmin><Users /></RequireAdmin>}></Route>
           <Route path='addproduct' element={<RequireAdmin><AddParts /></RequireAdmin>}></Route>
+          <Route path='manage' element={<RequireAdmin><Manage /></RequireAdmin>}></Route>
         </Route>
 
         <Route path='*' element={<NotFound></NotFound>}></Route>
