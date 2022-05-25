@@ -2,6 +2,8 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
+import { async } from '@firebase/util';
+import { toast } from 'react-toastify';
 
 const PurchaseModal = ({ purchase, setPurchase }) => {
     const [user] = useAuthState(auth);
@@ -9,7 +11,33 @@ const PurchaseModal = ({ purchase, setPurchase }) => {
     const { register, formState: { errors }, handleSubmit } = useForm();
 
 
-    const onSubmit = async data => {
+    const onSubmit = async e => {
+        const purchase = {
+            purchaseId: _id,
+            purchase: name,
+            client: user.email,
+            clientName: user.displayName,
+            price,
+            quantity: parseInt(e.quantity)
+        }
+
+        fetch('http://localhost:5000/purchase', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(purchase)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    toast(`Purchase Successful`)
+                }
+                else {
+                    toast.error(`Already Purchased`)
+                }
+
+            });
 
 
     }
@@ -37,6 +65,7 @@ const PurchaseModal = ({ purchase, setPurchase }) => {
                             type="text"
                             placeholder="Quantity"
                             className="input input-bordered w-full max-w-xs"
+
                             {...register("quantity", {
                                 required: 'Quantity is Required',
 
@@ -50,9 +79,15 @@ const PurchaseModal = ({ purchase, setPurchase }) => {
 
 
 
-                        <input type="text" name="phone" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" />
+                        <input
+                            type="text"
+                            placeholder="Phone Number"
+                            className="input input-bordered w-full max-w-xs"
 
-                        <input disabled={errors.quantity} type="submit" value="Purchase" className="btn btn-secondary w-full max-w-xs" />
+                            {...register("phone")}
+                        />
+
+                        < input disabled={errors.quantity} type="submit" value="Purchase" className="btn btn-secondary w-full max-w-xs" />
                     </form>
 
                 </div>

@@ -7,6 +7,9 @@ import Register from './Pages/Login/Register';
 import Footer from './Pages/Shared/Footer';
 import Navbar from './Pages/Shared/Navbar';
 import RequireAuth from './Pages/Login/RequireAuth';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Dashboard from './Pages/Dashboard/DashBoard';
 
 
 function App() {
@@ -23,12 +26,18 @@ function App() {
             <Purchase />
           </RequireAuth>
         }></Route>
+        <Route path="dashboard" element={
+          <RequireAuth>
+            <Dashboard />
+          </RequireAuth>
+        } ></Route>
 
 
 
       </Routes>
-
+      <ToastContainer></ToastContainer>
       <Footer></Footer>
+
     </div>
 
 

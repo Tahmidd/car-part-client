@@ -16,11 +16,11 @@ const Purchases = ({ part, setPurchase }) => {
                     <p>Available Quantity: {avail_quantity}</p>
                     <p>Price: {price}$</p>
 
-                    <div class="card-actions justify-center">
+                    <div className="card-actions justify-center">
                         <label
                             for="purchase-modal"
                             onClick={() => setPurchase(part)}
-                            class="btn btn-secondary border-2 shadow-md"
+                            className="btn btn-secondary border-2 shadow-md"
                         >Purchase</label>
                     </div>
 
