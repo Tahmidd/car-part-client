@@ -27,6 +27,7 @@ const MyOrders = () => {
                     return res.json()
                 })
                 .then(data => setOrders(data));
+
         }
     }, [user]);
 
@@ -41,13 +42,8 @@ const MyOrders = () => {
                 const remaining = orders.filter(purchase => purchase._id !== id);
                 setOrders(remaining);
             })
-
-
-
-
-
-
     }
+
     return (
         <div className='mt-5'>
             <h2>My Orders: {orders.length}</h2>
@@ -60,7 +56,7 @@ const MyOrders = () => {
                             <th>Quantity</th>
                             <th>Price</th>
                             <th>Purchase</th>
-                            {/* <th>Payment</th> */}
+                            <th>Payment</th>
                             <th>Cancel Order</th>
 
                         </tr>
@@ -73,6 +69,11 @@ const MyOrders = () => {
                                 <td>{a.quantity}</td>
                                 <td>{a.price}</td>
                                 <td>{a.purchase}</td>
+                                <td>{(a.price && !a.paid) && <Link to={`/dashboard/payment/${a._id}`}><button className='btn btn-xs btn-success'>Pay</button></Link>}
+                                    {(a.price && a.paid) && <div>
+                                        <p><span className='text-success'>Paid</span></p>
+                                        <p>Transaction id: <span className='text-success'>{a.transactionId}</span></p>
+                                    </div>}</td>
                                 <td>
                                     {/* <button onClick={() => handleDelete(a._id)} className='btn btn-danger'>Delete</button> */}
                                     <label for="delete-confirm-modal" class="btn btn-xs btn-error">Cancel</label>
