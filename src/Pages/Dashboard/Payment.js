@@ -11,7 +11,7 @@ const stripePromise = loadStripe('pk_test_51L1xftFvsF78ZwOI1Bg534oQdvHfZW8sppIro
 
 const Payment = () => {
     const { id } = useParams();
-    const url = `http://localhost:5000/purchase/${id}`;
+    const url = `https://quiet-wildwood-25649.herokuapp.com/purchase/${id}`;
 
     const { data: part, isLoading } = useQuery(['purchase', id], () => fetch(url, {
         method: 'GET',

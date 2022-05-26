@@ -16,7 +16,7 @@ const MyReview = () => {
             Rating: parseInt(data.rating)
         }
 
-        fetch('http://localhost:5000/review', {
+        fetch('https://quiet-wildwood-25649.herokuapp.com/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

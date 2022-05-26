@@ -20,6 +20,7 @@ import AddParts from './Pages/Dashboard/AddParts';
 import Manage from './Pages/Dashboard/Manage';
 import Payment from './Pages/Dashboard/Payment';
 import Portfolio from './Pages/Home/Portfolio';
+import Blog from './Pages/Home/Blog';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />}></Route>
         <Route path='about' element={<Portfolio />}></Route>
+        <Route path='blog' element={<Blog />}></Route>
         <Route path='login' element={<Login />}></Route>
         <Route path='register' element={<Register />}></Route>
         <Route path='purchase' element={

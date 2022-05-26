@@ -16,7 +16,7 @@ const MyProfile = () => {
 
         }
 
-        fetch('http://localhost:5000/profile', {
+        fetch('https://quiet-wildwood-25649.herokuapp.com/profile', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

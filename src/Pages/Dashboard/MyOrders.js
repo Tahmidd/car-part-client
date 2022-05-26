@@ -11,7 +11,7 @@ const MyOrders = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/purchase?client=${user.email}`, {
+            fetch(`https://quiet-wildwood-25649.herokuapp.com/purchase?client=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -32,7 +32,7 @@ const MyOrders = () => {
     }, [user]);
 
     const handleDelete = id => {
-        const url = `http://localhost:5000/purchase/${id}`;
+        const url = `https://quiet-wildwood-25649.herokuapp.com/purchase/${id}`;
         fetch(url, {
             method: 'DELETE'
         })

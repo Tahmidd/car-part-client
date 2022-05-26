@@ -21,7 +21,7 @@ const PurchaseModal = ({ purchase, setPurchase }) => {
             quantity: parseInt(e.quantity)
         }
 
-        fetch('http://localhost:5000/purchase', {
+        fetch('https://quiet-wildwood-25649.herokuapp.com/purchase', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

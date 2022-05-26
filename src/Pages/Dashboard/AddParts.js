@@ -7,7 +7,7 @@ const AddParts = () => {
     const onSubmit = async data => {
         toast("successfully added");
         console.log(data);
-        const url = `http://localhost:5000/part`;
+        const url = `https://quiet-wildwood-25649.herokuapp.com/part`;
         fetch(url, {
             method: 'POST',
             headers: {
