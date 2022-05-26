@@ -23,7 +23,7 @@ const Manage = () => {
     return (
         <div>
             <div className='mt-5'>
-                <h2>My Orders: {parts.length}</h2>
+                <h2>Manage Product: {parts.length}</h2>
                 <div className="overflow-x-auto mt-5">
                     <table className="table w-full">
                         <thead>
